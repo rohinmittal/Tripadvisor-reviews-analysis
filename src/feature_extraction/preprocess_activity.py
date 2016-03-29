@@ -1,14 +1,18 @@
 import json, nltk
 from stopwords import *
+import string, unidecode
 
 def preprocess_activity(activity):
         phrases = activity['Keywords']
+        #phrases = activity['reviews']
 	split_keys = split_phrases(phrases)
 	activity['splitkeys'] = split_keys
 
 def split_phrases(phrases):
 	split_phrases = []
 	for phrase in phrases:
+		phrase = unidecode.unidecode(phrase)
+		phrase = phrase.translate(None, string.punctuation)
 		keywords = phrase.split()
 		for word in keywords:
 			#lower case

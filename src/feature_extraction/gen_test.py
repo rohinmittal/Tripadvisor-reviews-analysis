@@ -4,6 +4,7 @@ from preprocess_activity import *
 
 if __name__ == "__main__":
 	json_data = json.loads(open('../../DATA/feature_extraction/alchemy_generated_input.json').read())
+	#json_data = json.loads(open('../../DATA/buffalo_data.json').read())
 
 	#preprocess activity
 	activity_keys_dict = {}
